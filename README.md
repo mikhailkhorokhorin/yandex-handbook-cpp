@@ -1,0 +1,3 @@
+# Solutions for yandex education handbook "Основы C++"
+
+### [2.1. Первые шаги](2.%20Базовые%20конструкции%20C++/2.1.%20Первые%20шаги/README.md)
