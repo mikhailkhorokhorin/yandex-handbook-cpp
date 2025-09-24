@@ -2,11 +2,12 @@
 
 int main() {
     std::cout << "C++ is a general-purpose programming language with a bias towards systems "
-                 "programming that\n";
-    std::cout << "  - is a better C\n";
-    std::cout << "  - supports data abstraction\n";
-    std::cout << "  - supports object-oriented programming\n";
-    std::cout << "  - supports generic programming.\n";
+                 "programming that"
+              << std::endl;
+    std::cout << "  - is a better C" << std::endl;
+    std::cout << "  - supports data abstraction" << std::endl;
+    std::cout << "  - supports object-oriented programming" << std::endl;
+    std::cout << "  - supports generic programming." << std::endl;
 
     return 0;
 }
