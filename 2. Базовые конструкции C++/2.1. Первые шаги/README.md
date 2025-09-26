@@ -1,11 +1,11 @@
 # 2.1. Первые шаги
 
-### А. Печать текста
+### A. Печать текста
 
 ```cpp
 #include <iostream>
 
-int main() {
+int main() {O
     std::cout << "C++ is a general-purpose programming language with a bias towards systems "
                  "programming that"
               << std::endl;
@@ -18,7 +18,7 @@ int main() {
 }
 ```
 
-### Б. Сумма чисел
+### B. Сумма чисел
 
 ```cpp
 #include <iostream>
