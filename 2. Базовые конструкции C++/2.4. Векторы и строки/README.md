@@ -79,15 +79,13 @@ int main() {
         }
     }
 
-    if (result.size() < 4) {
+    if (result.size() < 4)
         result.append(4 - result.size(), '0');
-    } else if (result.size() > 4) {
+    else if (result.size() > 4)
         result = result.substr(0, 4);
-    }
 
     std::cout << result << std::endl;
 }
-
 ```
 
 ### C. Обратная перестановка
@@ -102,21 +100,118 @@ int main() {
 
     std::vector<int> guests(length);
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
         std::cin >> guests[i];
-    }
 
     std::vector<int> places(length);
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
         places[guests[i] - 1] = i + 1;
-    }
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
         std::cout << places[i] << ' ';
-    }
 
     std::cout << std::endl;
+    return 0;
+}
+```
+
+### D. Сортировка по убыванию
+
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector<std::string> words;
+
+    std::string word;
+    while (std::getline(std::cin, word))
+        words.push_back(word);
+
+    std::sort(words.rbegin(), words.rend());
+
+    for (std::string word : words)
+        std::cout << word << std::endl;
+
+    return 0;
+}
+```
+
+### E. Палиндромы
+
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string word;
+    std::getline(std::cin, word);
+
+    word.erase(std::remove(word.begin(), word.end(), ' '), word.end());
+
+    std::string reversed = word;
+    std::reverse(reversed.begin(), reversed.end());
+
+    std::cout << (word == reversed ? "YES" : "NO") << std::endl;
+
+    return 0;
+}
+```
+
+### F. Сапёр
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int main() {
+    int m, n, k;
+    std::cin >> m >> n >> k;
+
+    std::vector<std::vector<int>> field(m, std::vector<int>(n, 0));
+    std::vector<std::pair<int, int>> mines(k);
+
+    for (int i = 0; i < k; ++i) {
+        int x, y;
+        std::cin >> x >> y;
+
+        x--;
+        y--;
+
+        mines[i] = {x, y};
+        field[x][y] = -1;
+    }
+
+    int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+    int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+    for (auto [x, y] : mines) {
+        for (int d = 0; d < 8; d++) {
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n && field[nx][ny] != -1) {
+                field[nx][ny]++;
+            }
+        }
+    }
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (field[i][j] == -1)
+                std::cout << "*";
+            else
+                std::cout << field[i][j];
+
+            if (j + 1 < n)
+                std::cout << " ";
+        }
+        std::cout << std::endl;
+    }
+
     return 0;
 }
 ```

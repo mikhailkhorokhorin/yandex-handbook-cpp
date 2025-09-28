@@ -4,16 +4,14 @@ int main() {
     int n, k;
     std::cin >> n >> k;
 
-    for (int i = 1; i < n; ++i) {
+    for (int i = 1; i < n; ++i)
         std::cout << "   ";
-    }
 
     int currentDay = n;
 
     for (int day = 1; day <= k; ++day) {
-        if (day < 10) {
+        if (day < 10)
             std::cout << " ";
-        }
 
         std::cout << day;
 
@@ -26,7 +24,6 @@ int main() {
         }
     }
 
-    if (currentDay != 1) {
+    if (currentDay != 1)
         std::cout << std::endl;
-    }
 }

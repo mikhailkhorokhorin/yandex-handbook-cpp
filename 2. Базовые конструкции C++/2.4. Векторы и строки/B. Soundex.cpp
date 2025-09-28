@@ -36,11 +36,10 @@ int main() {
         }
     }
 
-    if (result.size() < 4) {
+    if (result.size() < 4)
         result.append(4 - result.size(), '0');
-    } else if (result.size() > 4) {
+    else if (result.size() > 4)
         result = result.substr(0, 4);
-    }
 
     std::cout << result << std::endl;
 }
