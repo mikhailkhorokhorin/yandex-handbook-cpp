@@ -28,10 +28,8 @@ int main() {
         return a.first < b.first;
     });
 
-    // Вывод
-    for (auto& p : grams) {
+    for (auto& p : grams)
         std::cout << p.first << " - " << p.second << std::endl;
-    }
 
     return 0;
 }

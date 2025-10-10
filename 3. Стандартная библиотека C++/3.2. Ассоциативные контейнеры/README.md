@@ -91,9 +91,8 @@ int main() {
         }
     }
 
-    for (auto& dir : dirs) {
+    for (auto& dir : dirs) 
         std::cout << dir << std::endl;
-    }
 
     return 0;
 }
@@ -167,11 +166,9 @@ int main() {
         return a.first < b.first;
     });
 
-    // Вывод
-    for (auto& p : grams) {
+    for (auto& p : grams) 
         std::cout << p.first << " - " << p.second << std::endl;
-    }
-
+    
     return 0;
 }
 ```

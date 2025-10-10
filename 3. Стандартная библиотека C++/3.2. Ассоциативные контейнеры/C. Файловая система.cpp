@@ -26,9 +26,8 @@ int main() {
         }
     }
 
-    for (auto& dir : dirs) {
+    for (auto& dir : dirs)
         std::cout << dir << std::endl;
-    }
 
     return 0;
 }

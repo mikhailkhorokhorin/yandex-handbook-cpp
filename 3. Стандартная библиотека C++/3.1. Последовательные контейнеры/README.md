@@ -238,8 +238,7 @@ int main() {
         }
     }
 
-    for (const auto &x : file) {
+    for (const auto &x : file) 
         std::cout << x << std::endl;
-    }
 }
 ```
