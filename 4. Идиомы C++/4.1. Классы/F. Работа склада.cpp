@@ -3,7 +3,7 @@
 
 class Stock {
    private:
-    std::vector<std::pair<int, int>> boxes;
+    std::vector<std::pair<int, int>> boxes_;
 
     struct ByWComp {
         bool operator()(const std::pair<int, size_t>& a, const std::pair<int, size_t>& b) const {
@@ -26,14 +26,14 @@ class Stock {
 
    public:
     void Add(int w, int v) {
-        size_t id = boxes.size();
-        boxes.push_back({w, v});
+        size_t id = boxes_.size();
+        boxes_.push_back({w, v});
         byW.insert({w, id});
         byV.insert({v, id});
     }
 
     int GetByW(int min_w) {
-        auto iter = byW.lower_bound({min_w, boxes.size()});
+        auto iter = byW.lower_bound({min_w, boxes_.size()});
 
         if (iter == byW.end())
             return -1;
@@ -41,12 +41,12 @@ class Stock {
         size_t id = iter->second;
 
         byW.erase(iter);
-        byV.erase({boxes[id].second, id});
+        byV.erase({boxes_[id].second, id});
         return id;
     }
 
     int GetByV(int min_v) {
-        auto iter = byV.lower_bound({min_v, boxes.size()});
+        auto iter = byV.lower_bound({min_v, boxes_.size()});
 
         if (iter == byV.end())
             return -1;
@@ -54,7 +54,7 @@ class Stock {
         size_t id = iter->second;
 
         byV.erase(iter);
-        byW.erase({boxes[id].first, id});
+        byW.erase({boxes_[id].first, id});
         return id;
     }
 };
